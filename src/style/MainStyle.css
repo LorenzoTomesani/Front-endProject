@@ -1,0 +1,32 @@
+.exercises{
+    margin-top: 5vh;
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+    font-size: 1.4rem;
+    margin-left: 0vh !important;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    text-align: center;
+}
+
+.question{
+    border: 3px black solid;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    text-align: center;
+    margin-bottom: 8vh;
+    word-break: break-all;
+    margin-top: 6vh;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+.margin-left{
+    margin-left: 6vw;
+    margin-right:6vw;
+}
+
+.collection{
+    font-size: 1.3rem;
+    padding-bottom: 1vh;
+}

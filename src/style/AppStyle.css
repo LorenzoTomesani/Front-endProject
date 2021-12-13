@@ -1,0 +1,43 @@
+.topbar{
+    border-bottom: 3px solid; 
+    background-color: aquamarine; 
+    text-align: center;
+    padding-top: .30rem;
+    padding-bottom: .30rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.main{
+    padding-left: 0vw;
+    padding-Right: 0vw;
+    border-right: 3px solid black;
+}
+
+@media only screen and (max-device-width: 480px) {
+
+    #root {
+        overflow-x: hidden;
+    }
+
+    .main {
+        border-right:0px ;
+        border-bottom: 3px solid black ;
+        text-align: center;
+    }
+
+    .row{
+        margin-right: 0vh;
+    }
+
+}
+
+
+@media (max-height:600px) {
+
+    .main {
+        border-right:0px ;
+        border-bottom: 3px solid black ;
+        text-align: center;
+    }
+}

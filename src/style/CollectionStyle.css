@@ -1,0 +1,10 @@
+.scrollableDiv {
+
+    height: 94vh;
+    overflow-y: scroll;
+
+}
+
+.scrollableDiv::-webkit-scrollbar{
+    display:none;
+}

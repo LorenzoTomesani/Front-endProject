@@ -1,0 +1,23 @@
+.textareaCustom {
+    resize: none;
+    height: 20vh;
+    width: 38vw;
+    border: 3px black solid;
+    font-size: 1.3rem;
+    padding: 1vw;
+}
+
+@media only screen and (max-device-width: 480px) {
+
+    .textareaCustom {        
+     width: 85vw;
+    }
+}
+
+@media (max-height:600px) and (max-width: 1200) {
+
+    .textareaCustom {        
+     width: 85vw;
+     height: 50vh;
+    }
+}
