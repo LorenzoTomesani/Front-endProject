@@ -46,7 +46,7 @@ function Main(props) {
                 <div className="collection margin-left">db.getCollection({props.chosenEx.collection})</div>
                 <CustomTextArea checkAnswer={checkAnswer} valid={props.valid} />
             </Col>
-        </Row></> : <div style={{paddingTop: '40vh', paddingLeft: '20vw'}}>Nessun esercizio selezionato</div>} 
+        </Row></> : <div style={{paddingTop: '40vh', paddingLeft: '20vw'}}>{t('noExercise')}</div>} 
     </Container>
     );
 }

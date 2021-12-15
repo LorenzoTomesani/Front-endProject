@@ -8,5 +8,6 @@
     "hard": "HARD",
     "filter": "Filter exercises", 
     "check": "check solution",    
-    "errorApex": "For strings use the single apex!"
+    "errorApex": "For strings use the single apex!",
+    "noExercise": "No exercise selected"
 }

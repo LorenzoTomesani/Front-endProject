@@ -8,5 +8,6 @@
     "hard": "DIFFICILE",    
     "filter": "Filtra esercizi", 
     "check": "controlla soluzione",    
-    "errorApex": "Per le stringhe usa il singolo apice!"
+    "errorApex": "Per le stringhe usa il singolo apice!",    
+    "noExercise": "Nessun esercizio selezionato"
 }
