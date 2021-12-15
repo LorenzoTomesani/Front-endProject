@@ -12,7 +12,7 @@ function CollectionExample(props) {
     useEffect(() =>{
         var tmp = [];
         if(collection && collection.length > 0){
-            collection.forEach(function (key, index) {
+            collection.map(function (key, index) {
                 tmp.push(<CardExample document={key}></CardExample>)
             })
             setList(tmp)
