@@ -31,6 +31,7 @@ function App() {
 
     useEffect(() => {
         axios.get( baseUrl + "/exercises").then(res => {
+            console.log(res.data)
             setExercises(res.data);
         }).catch(err => {
             console.log(err);
