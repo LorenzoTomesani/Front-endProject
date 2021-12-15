@@ -11,7 +11,7 @@ function CardExample(props) {
     useEffect(() =>{
         var tmp = [];
         if(document){
-        Object.keys(document).map((key, index) =>{
+        Object.keys(document).forEach((key, index) =>{
             if(key==='_id'){
                 tmp.push(<CardTitle style={{fontWeight: 'bold'}}>{key + ': '}<span style={{ color:'orangered'}}>{' ObjectId("' + document[key] + '")'}</span></CardTitle>)
             } else {
