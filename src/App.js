@@ -27,10 +27,10 @@ function App() {
 
     const { t, i18n } = useTranslation();
 
-
+    const baseUrl = 'http://lorenzo.tomesani2.tw.cs.unibo.it';
 
     useEffect(() => {
-        axios.get("http://localhost:3001/exercises").then(res => {
+        axios.get( baseUrl + "/exercises").then(res => {
             setExercises(res.data);
         }).catch(err => {
             console.log(err);
@@ -39,7 +39,7 @@ function App() {
 
     useEffect(() => {
         if (chosenEx.collection !== oldCollection) {
-            axios.get("http://localhost:3001/collections/" + chosenEx.collection).then(res => {
+            axios.get(baseUrl + "/collections/" + chosenEx.collection).then(res => {
                 setCollection(res.data);
             }).catch(err => {
                 console.log(err);
@@ -55,7 +55,7 @@ function App() {
 
     const checkAnswer = (answer) => {
         if(answer && answer.length > 0){
-            axios.post("http://localhost:3001/exercises/" + chosenEx._id, {
+            axios.post(baseUrl + "/exercises/" + chosenEx._id, {
                 query: "db.collection('" + chosenEx.collection + "')" + answer
             }).then(res => {
                 setValid((res.data).toString());
