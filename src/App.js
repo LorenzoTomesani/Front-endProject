@@ -27,7 +27,7 @@ function App() {
 
     const { t, i18n } = useTranslation();
 
-    const baseUrl = 'http://lorenzo.tomesani2.tw.cs.unibo.it';
+    const baseUrl = 'lorenzo.tomesani2.tw.cs.unibo.it';
 
     useEffect(() => {
         axios.get( baseUrl + "/exercises").then(res => {
