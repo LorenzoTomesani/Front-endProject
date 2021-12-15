@@ -19,7 +19,7 @@ body {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-height: 1080px) and (max-width: 800px) {
     
     body {        
         overflow-y: auto;
