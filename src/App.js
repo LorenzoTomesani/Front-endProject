@@ -40,7 +40,6 @@ function App() {
     useEffect(() => {
         if (chosenEx.collection !== oldCollection) {
             axios.get(baseUrl + "/collections/" + chosenEx.collection).then(res => {
-                console.log(res.data)
                 setCollection(res.data);
             }).catch(err => {
                 console.log(err);

@@ -11,7 +11,7 @@ function CollectionExample(props) {
 
     useEffect(() =>{
         var tmp = [];
-        if(collection && collection.length > 0){
+        if(collection && (typeof collection)==='object' && collection.length > 0){
             collection.map(function (key, index) {
                 tmp.push(<CardExample document={key}></CardExample>)
             })
