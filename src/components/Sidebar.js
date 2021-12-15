@@ -1,5 +1,5 @@
+import React,{ useState, useEffect } from 'react';
 import { Nav, NavItem } from 'reactstrap';
-import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
 import '../style/SidebarStyle.css';
@@ -7,9 +7,11 @@ import '../style/SidebarStyle.css';
 function Sidebar(props) {
 
     const [items, setItems] = useState([]);
-    const [isClicked, setIsClicked] = useState(false);
-    const {exercises, setExercise} = props;
 
+    const [isClicked, setIsClicked] = useState(false);
+
+    const {exercises, setExercise, t} = props;
+    
     useEffect(() => {
 
         const setEx = (e) => {
@@ -17,7 +19,7 @@ function Sidebar(props) {
         }
         
         var tmp = [];
-        tmp.push(<NavItem style={{fontWeight: '800', fontSize: '1.6rem'}}>Filtra 
+        tmp.push(<NavItem style={{fontWeight: '800', fontSize: '1.6rem'}}>{t('filter')} 
         <FontAwesomeIcon style={{paddingLeft: '0.3vw', fontSize: '2rem'}} icon={isClicked ? faCaretUp :faCaretDown}/></NavItem>)
         if (exercises.length > 0) {
             var lastOp = '';
@@ -28,26 +30,27 @@ function Sidebar(props) {
                 var difficulty = '';
                 switch (exercises[i].difficulty) {
                     case 1:
-                        difficulty = 'EASY';
+                        difficulty = t('easy');
                         break;
                     case 2:
-                        difficulty = 'NORMAL';
+                        difficulty =  t("normal");
                         break;
                     case 3:
-                        difficulty = 'HARD';
+                        difficulty = t('hard');
                         break;
                     default:
                         break;
                 }
-                tmp.push(
+                tmp.push( 
                     <NavItem id={i} onClick={(e) => setEx(e)} style={{ cursor: 'pointer' }}>
-                        Esercizio n. {i + 1}
-                        <span className={"box difficulty" + exercises[i].difficulty}>{difficulty}</span>
+                        {t('exercise')} n. {i + 1}
+                        <span className={"box difficulty" + exercises[i].difficulty} id={i}>{difficulty}</span>
                     </NavItem>)
             }
             setItems(tmp);
         }
-    }, [exercises, setExercise]);
+    }, [exercises, setExercise, t,isClicked]);
+
 
     return (
         <Nav vertical className="Sidebar">

@@ -1,0 +1,12 @@
+{
+    "exercise": "Esercizio",
+    "solution": "La soluzione che hai fornito è: ",
+    "correct": "corretta",
+    "wrong": "sbagliata",
+    "easy": "FACILE",
+    "normal":"NORMALE",
+    "hard": "DIFFICILE",    
+    "filter": "Filtra esercizi", 
+    "check": "controlla soluzione",    
+    "errorApex": "Per le stringhe usa il singolo apice!"
+}

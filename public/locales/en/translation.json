@@ -1,0 +1,12 @@
+{
+    "exercise": "Exercise",
+    "solution": "The solution you provided is: ",
+    "correct": "correct",
+    "wrong": "wrong",
+    "easy": "EASY",
+    "normal":"NORMAL",
+    "hard": "HARD",
+    "filter": "Filter exercises", 
+    "check": "check solution",    
+    "errorApex": "For strings use the single apex!"
+}

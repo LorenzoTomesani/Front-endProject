@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState} from "react";
 import CardExample from './CardExample.js';
 import './../style/CollectionStyle.css';
 
@@ -12,10 +12,12 @@ function CollectionExample(props) {
     useEffect(() =>{
         var tmp = [];
         if(collection && collection.length > 0){
-            collection.map(function (key, index) {
+            collection.forEach(function (key, index) {
                 tmp.push(<CardExample document={key}></CardExample>)
             })
             setList(tmp)
+            var myDiv = document.getElementsByClassName('scrollableDiv')[0];
+            myDiv.scrollTop = 0;
         }
     }, [collection])
 

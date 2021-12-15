@@ -1,7 +1,8 @@
 .checkButton{  
     margin-top: 1vh;
-    background-color: aquamarine;
-    border-color: black;
+    background-color: aquamarine !important;
+    border-color: black !important;
+    color: black !important;
     box-shadow: none;
     font-size: medium;
 }

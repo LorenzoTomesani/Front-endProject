@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../style/TextAreaStyle.css';
 import ValidateAnswer from './ValidateAnswer'; 
 
@@ -6,6 +7,9 @@ function CustomTextArea(props) {
 
     const spaces = 4;
     const [text, setText] = useState({value: '', caret: -1, target: null});
+    const {t} = useTranslation();
+
+
 
     useEffect(() => {
 
@@ -22,6 +26,7 @@ function CustomTextArea(props) {
         let content = e.target.value;
         let caret   = e.target.selectionStart;
 
+        
         if(e.key === 'Tab'){
 
             e.preventDefault();
@@ -29,10 +34,10 @@ function CustomTextArea(props) {
             let newText = content.substring(0, caret) + ' '.repeat(spaces) + content.substring(caret);
 
             setText({value: newText, caret: caret, target: e.target});
-
+            
         } else if(e.key==='"'){
             e.preventDefault();
-            alert('Per le stringhe usa il singolo apice!');
+            alert(t('errorApex'));
         }
     }
 
