@@ -7,7 +7,17 @@
     "normal":"NORMALE",
     "hard": "DIFFICILE",    
     "filter": "Filtra esercizi", 
-    "check": "controlla soluzione",    
+    "check": "Controlla soluzione",    
     "errorApex": "Per le stringhe usa il singolo apice!",    
-    "noExercise": "Nessun esercizio selezionato"
+    "noExercise": "Nessun esercizio selezionato",    
+    "difficulty": "Difficoltà: ",
+    "col": "Collezione: ",
+    "selectDiff": "Seleziona la difficoltà",    
+    "selectCol": "Seleziona la collezione",    
+    "selectTag": "Seleziona i tag",    
+    "syntax": "Errore di sintassi!",
+    "exec": "Esegui query",
+    "executeQuery": "Esegui la query senza andarne a controllare la correttezza",
+    "showSolution": "Mostra la soluzione",    
+    "proposedSolution": "Soluzione proposta"
 }

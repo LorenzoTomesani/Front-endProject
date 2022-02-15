@@ -3,6 +3,58 @@
     background-color: aquamarine !important;
     border-color: black !important;
     color: black !important;
+    border-radius: 1.0rem !important;
     box-shadow: none;
     font-size: medium;
+}
+
+
+.exec{
+    margin-top: 0vh !important;
+    margin-bottom: 1vw;
+}
+
+
+@media (max-width: 1400px){
+    .checkButton{  
+        font-size: 0.9rem !important;
+    }
+
+    .solution{
+        font-size: 0.9rem !important;
+
+    }
+}
+
+@media (max-width:520px){
+	 .checkButton{  
+        font-size: 0.7rem !important;
+    }
+
+    .solution{
+        font-size: 0.7rem !important;
+    }
+	
+	.checkAnswer{
+		margin-bottom: 1vh !important;
+	}
+}
+
+@media only screen and (max-device-width: 480px) {
+
+    body {        
+        overflow-y: auto;
+    }
+	
+	.checkAnswer{
+		margin-bottom: 1vh !important;
+	}
+	 
+	 .checkButton, .solution{  
+        font-size: 0.6rem !important;
+    }
+	
+	.solutionText {
+		margin-right: 6vh !important;
+	}
 }

@@ -4,7 +4,7 @@ import './../style/CollectionStyle.css';
 
 function CollectionExample(props) {
 
-    const { collection } = props;
+    const { collection, queryResult } = props;
     
 
     const [list, setList] = useState([]);
@@ -20,6 +20,18 @@ function CollectionExample(props) {
             myDiv.scrollTop = 0;
         }
     }, [collection])
+    
+    useEffect(() =>{
+        var tmp = [];
+        if(queryResult && queryResult.length > 0){
+            queryResult.forEach(function (key, index) {
+                tmp.push(<CardExample document={key}></CardExample>)
+            })
+            setList(tmp)
+            var myDiv = document.getElementsByClassName('scrollableDiv')[0];
+            myDiv.scrollTop = 0;
+        }
+    }, [queryResult])
 
     return (
         <div className="scrollableDiv">

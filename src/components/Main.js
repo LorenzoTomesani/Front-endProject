@@ -7,10 +7,16 @@ function Main(props) {
 
     const [difficulty, setDifficulty] = useState('');
 
-    const { chosenEx, numberEx, t } = props;
+    const { chosenEx, numberEx, t, solution } = props;
+ 
+
+    const [needReset, setNeedReset] = useState(0);
 
     useEffect(() => {
         if (chosenEx) {
+            
+            setNeedReset(needReset+1)
+
             var difficulty = '';
             switch (chosenEx.difficulty) {
                 case 1:
@@ -33,18 +39,32 @@ function Main(props) {
         props.checkAnswer(answer)
     }
 
+    const executeQuery = (query) => {
+        props.executeQuery(query)
+    }
+
+    const showSolution = () => {
+        props.showSolution()
+    }
+
+
     return (
     <Container fluid style={{ paddingLeft: '0vw', paddingRight: '0vw' }}>
-      {Object.keys(chosenEx).length !== 0?<> 
-      <div className="exercises">{t("exercise")} n. {numberEx > -1 ? numberEx : null}
-            {props.chosenEx.difficulty ? <span className={"box difficulty" + chosenEx.difficulty}>{difficulty}</span> : null}</div>
+      {Object.keys(chosenEx).length !== 0?<>
+      <div className="exercises"><h3> {t("exercise")} n. {numberEx > -1 ? numberEx : null} 
+            {props.chosenEx.difficulty ? <span className={"topMargin box difficulty" + chosenEx.difficulty} style={{position: 'absolute', marginTop: '5.5px'}}>{difficulty}</span> : null}</h3></div>
         <Row>
             <Col>
                 <div className="question margin-left">
                     {props.chosenEx['question-' +i18n.language]}
                 </div>
-                <div className="collection margin-left">db.getCollection({props.chosenEx.collection})</div>
-                <CustomTextArea checkAnswer={checkAnswer} valid={props.valid} />
+                <div className="collection margin-left">db.getCollection({'"' + props.chosenEx.collection + '"'})</div>
+                <CustomTextArea checkAnswer={checkAnswer} valid={props.valid}
+                chosenEx={props.chosenEx}
+                executeQuery={executeQuery}
+                showSolution={showSolution}
+                solution={solution}
+                />
             </Col>
         </Row></> : <div style={{paddingTop: '40vh', paddingLeft: '20vw'}}>{t('noExercise')}</div>} 
     </Container>

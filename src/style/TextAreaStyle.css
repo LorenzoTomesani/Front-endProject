@@ -1,10 +1,11 @@
 .textareaCustom {
     resize: none;
-    height: 20vh;
+    height: 24vh;
     width: 38vw;
-    border: 3px black solid;
+    border: 1px black solid;
     font-size: 1.3rem;
     padding: 1vw;
+    border-radius: 0.5vh;
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -14,10 +15,29 @@
     }
 }
 
-@media (max-height:600px) and (max-width: 1200) {
+@media (max-height:1080px) and (max-width: 1200px) {
 
     .textareaCustom {        
      width: 85vw;
      height: 50vh;
     }
+}
+
+@media (max-width: 1400px){
+    .textareaCustom {
+    font-size: 1rem;
+	}
+	   
+	.textareaCustom {        
+     
+     height: 20vh;
+    }
+}
+
+@media (max-width: 520px){
+    .textareaCustom {
+    font-size: 0.7rem;  
+     
+     height: 10vh;
+	}
 }
