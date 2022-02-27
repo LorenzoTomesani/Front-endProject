@@ -1,41 +1,35 @@
 import React,{ useEffect, useState} from "react";
 import CardExample from './CardExample.js';
+import { useTranslation } from 'react-i18next';
 import './../style/CollectionStyle.css';
 
 function CollectionExample(props) {
 
-    const { collection, queryResult } = props;
+    const {  queryResult, errorMsg } = props;    
     
+    const { t } = useTranslation();
 
     const [list, setList] = useState([]);
 
-    useEffect(() =>{
-        var tmp = [];
-        if(collection && collection.length > 0){
-            collection.forEach(function (key, index) {
-                tmp.push(<CardExample document={key}></CardExample>)
-            })
-            setList(tmp)
-            var myDiv = document.getElementsByClassName('scrollableDiv')[0];
-            myDiv.scrollTop = 0;
-        }
-    }, [collection])
     
     useEffect(() =>{
         var tmp = [];
-        if(queryResult && queryResult.length > 0){
+        if( errorMsg == '' && queryResult && queryResult.length > 0){
             queryResult.forEach(function (key, index) {
                 tmp.push(<CardExample document={key}></CardExample>)
             })
             setList(tmp)
-            var myDiv = document.getElementsByClassName('scrollableDiv')[0];
-            myDiv.scrollTop = 0;
+        } else if(queryResult==null){
+            setList([])
         }
     }, [queryResult])
 
     return (
         <div className="scrollableDiv">
-            {list}
+            {errorMsg == ''? list.length>0? list : 
+            queryResult?
+            <div style={{marginLeft: "1vw", marginTop: "1vw", fontSize: "1.0rem"}}>{t('empty')}</div> : null : 
+            <div style={{marginLeft: "1vw", marginTop: "1vw", fontSize: "1.0rem", color:"red", fontWeight: "bold"}}>Error: {errorMsg}</div> }
         </div>
     )
 }

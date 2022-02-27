@@ -8,7 +8,7 @@ function ValidateAnswer(props) {
 
     const { t } = useTranslation();
 
-    const { valid, chosenEx } = props;
+    const { valid, chosenEx, solution } = props;
 
     const [attempt, setAttempt] = useState(0);
 
@@ -16,17 +16,45 @@ function ValidateAnswer(props) {
 
     const [open, setOpen] = useState(false);
 
+    const [solutionQ, setSolutionQ] = useState('');
+
     useEffect(() => {
         if (valid !== 'true' && valid !== '') {   
             setAttempt(attempt + 1);
         }
-        console.log(attempt)
     }, [tried]);
 
     useEffect(()=>{
         setAttempt(0);
         setTried(0)
     }, [chosenEx])
+
+    useEffect(()=>{
+        var tmp = solution.substring(solution.indexOf(')')+1);
+        var string = '.find(';
+        if(tmp.includes(".project(")){ 
+            var substrings = tmp.substring(tmp.indexOf('(')+1);
+            var checkLength = substrings.split(')');
+            if(checkLength.length === 4){
+                var findParam = tmp.split('.find(')[1];
+                var tmpParam = findParam.split(').project(');        
+                var findParam = tmpParam[0];        
+                string = string + findParam + ',';
+                var projectParam = tmpParam[1];
+                string = string + projectParam;                
+            } else if(checkLength.length === 3){
+                var findParam = checkLength[0];    
+                string = string + findParam + ',';
+                substrings = checkLength[1];        
+                var projectParam = substrings.split('(')[1];
+                string = string + projectParam + ')';
+            }
+            setSolutionQ(string);
+        } else {            
+            setSolutionQ(tmp);
+        }
+    }, [solution])
+
 
     const openModal = () =>{
         props.showSolution();
@@ -37,6 +65,8 @@ function ValidateAnswer(props) {
        props.checkAnswer(); 
        setTried(tried+1); 
     }
+
+
     return (
         <div className="margin-left">
             <div className="solution" style={{ paddingLeft: '0vw', paddingRight: '0vw' }}>
@@ -68,7 +98,7 @@ function ValidateAnswer(props) {
                         {t('proposedSolution')} 
                     </ModalHeader>
                     <ModalBody>
-                        {props.solution.substring(props.solution.indexOf(')')+1)}
+                        {solutionQ}
                     </ModalBody>
                 </Modal>
             </div>

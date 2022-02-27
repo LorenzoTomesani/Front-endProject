@@ -11,7 +11,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
 
-    var oldCollection = '';
 
     const [exercises, setExercises] = useState([]);
 
@@ -23,13 +22,13 @@ function App() {
 
     const [valid, setValid] = useState('');
 
-    const [collection, setCollection] = useState([]);
+    const [error, setError] = useState("");
 
     const [isEng, setIsEng] = useState(false);
 
     const [tags, setTags] = useState([]);
 
-    const [queryResult, setQueryResult] = useState([]);
+    const [queryResult, setQueryResult] = useState(null);
 
     const [solution, setSolution] = useState('');
 
@@ -96,20 +95,12 @@ function App() {
         });
     }, []);
 
-    useEffect(() => {
-        if (chosenEx.collection !== oldCollection) {
-            axios.get(baseUrl + "/collections/" + chosenEx.collection).then(res => {
-                setCollection(res.data);
-            }).catch(err => {
-                console.log(err);
-            });
-        }
-    }, [chosenEx, oldCollection]);
-
     const setExercise = (ex, nEx) => {
-        oldCollection = chosenEx.collection;
         setChosenEx(ex);
         setNumberEx(nEx);
+        setValid('');
+        setQueryResult(null);
+        setError('');
     }
 
     const checkAnswer = (answer) => {
@@ -120,6 +111,7 @@ function App() {
             }).then(res => {
                 setValid((res.data['resultCode']).toString());
                 setQueryResult(res.data['result']?  res.data['result']: []);
+                setError(res.data['errormsg']? res.data['errormsg']: '');
             })
         } else {
             setValid('false')
@@ -131,11 +123,12 @@ function App() {
         if (query && query.length > 0) {
             axios.post(baseUrl + "/exercises/" + chosenEx._id + "/query", {
                 query: query
-            }).then(res => {
-                if(res.data !== 'syntax') {                    
-                    setQueryResult(res.data);
+            }).then(res => {        
+                if(res.data.resultCode !== 'syntax') {         
+                    setQueryResult(res.data.data);
+                    setError('')
                 } else {
-                    alert(t('syntax')) 
+                    setError(res.data.errormsg)
                 }
             })
         } else {
@@ -183,7 +176,7 @@ function App() {
                 </Col>
 
                 <Col xl={3} xs={13} style={{ paddingLeft: '0vw', paddingRight: '0vw' }}>
-                    <CollectionExample collection={collection} queryResult={queryResult}/>
+                    <CollectionExample queryResult={queryResult} errorMsg={error}/>
                 </Col>
             </Row>
         </Container>

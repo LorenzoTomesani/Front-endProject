@@ -19,6 +19,7 @@
     "exec": "Execute query",    
     "executeQuery": "Execute the query without checking the correctness",    
     "showSolution": "Show the solution",
-    "proposedSolution": "Proposed solution"
+    "proposedSolution": "Proposed solution",
+    "empty": "0 document founds" 
 
 }

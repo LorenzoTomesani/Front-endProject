@@ -19,5 +19,6 @@
     "exec": "Esegui query",
     "executeQuery": "Esegui la query senza andarne a controllare la correttezza",
     "showSolution": "Mostra la soluzione",    
-    "proposedSolution": "Soluzione proposta"
+    "proposedSolution": "Soluzione proposta",    
+    "empty": "0 documenti trovati"
 }

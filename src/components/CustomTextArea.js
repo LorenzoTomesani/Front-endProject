@@ -9,14 +9,14 @@ function CustomTextArea(props) {
     
     const spaces = 4;
     
-    const [text, setText] = useState({value: '', caret: -1, target: null});
+    const [text, setText] = useState({value: ".find({})", caret: -1, target: null});
 
     const [isValid, setValid] = useState(props.valid);
     
     const [solution, setSolution] = useState(props.solution)
 
     useEffect(()=>{
-        setText({value: '', caret: -1, target: null});
+        setText({value: ".find({})", caret: -1, target: null});
         setValid('');
         setSolution('');
     }, [props.chosenEx])
