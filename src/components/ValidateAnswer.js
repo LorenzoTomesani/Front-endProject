@@ -31,7 +31,8 @@ function ValidateAnswer(props) {
 
     useEffect(()=>{
         var tmp = solution.substring(solution.indexOf(')')+1);
-        var string = '.find(';
+        var sol = solution.replace("collection", "getCollection");
+        var string = 'db.getCollection("' + chosenEx.collection + '").find(';
         if(tmp.includes(".project(")){ 
             var substrings = tmp.substring(tmp.indexOf('(')+1);
             var checkLength = substrings.split(')');
@@ -51,7 +52,7 @@ function ValidateAnswer(props) {
             }
             setSolutionQ(string);
         } else {            
-            setSolutionQ(tmp);
+            setSolutionQ(sol);
         }
     }, [solution])
 
@@ -72,7 +73,7 @@ function ValidateAnswer(props) {
             <div className="solution" style={{ paddingLeft: '0vw', paddingRight: '0vw' }}>
                 <div style={{ marginTop: '2vh' }}>
                     <div style={{ position: 'relative', top: '1.7vh', display: 'inline-block' }}>{t('executeQuery')}</div>
-                    <Button className="checkButton exec" onClick={props.executeQuery} style={{ float: 'right' }}> {t('exec')} </Button>
+                    <Button className="checkButton exec" onClick={props.executeQuery} style={{ float: 'right' }} color="primary"> {t('exec')} </Button>
                 </div>
                 <div style={{ marginTop: '5vh' }} >
 
@@ -87,11 +88,11 @@ function ValidateAnswer(props) {
                             ) : ''
                         }
                     </div>
-                    <Button className="checkButton checkAnswer" onClick={() => {checkButton()}} style={{ float: 'right' }}> {t('check')} </Button>
+                    <Button className="checkButton checkAnswer" onClick={() => {checkButton()}} style={{ float: 'right' }} color="primary"> {t('check')} </Button>
                 </div>
                 {attempt >= 2 ?
                     <div style={{ marginTop: '5vh', textAlign: 'center' }}>
-                        <Button className="checkButton exec" onClick={openModal}> {t('showSolution')} </Button>
+                        <Button className="checkButton exec" onClick={openModal} color="primary"> {t('showSolution')} </Button>
                     </div> : null}
                 <Modal isOpen={open}>
                     <ModalHeader className='text-center' toggle={() => setOpen(false)}>

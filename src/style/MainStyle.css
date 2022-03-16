@@ -27,6 +27,10 @@
     padding-bottom: 1vh;
 }
 
+.absolutePosition{
+    position: absolute !important;
+    margin-top: 5.5px !important
+}
 
 @media (max-width: 1400px){
 
@@ -45,6 +49,7 @@
     h3 > span {
         margin-top: 2px !important;
     }
+    
 }
 
 @media (max-width: 520px){
@@ -63,5 +68,10 @@
 
     h3 > span {
         margin-top: 2px !important;
+    }
+    
+    .absolutePosition{
+        position: relative !important;
+        bottom: 4px;
     }
 }

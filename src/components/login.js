@@ -36,6 +36,8 @@ function Login() {
 
     const insertNewEx = () => {
         axios.post(baseUrl + "/exercises",  {
+            'user': userId,
+            'psw': password,
             'type': type,
             'collection': collection,
             'difficulty': difficulty,
@@ -54,8 +56,10 @@ function Login() {
                 setQuestIt('');
                 setTag([]);
                 document.getElementById("success").style.display = "block";
+                document.getElementById("error2").style.display = "none";
                 document.getElementById("tags").value = "";
             } else {
+                document.getElementById("success").style.display = "none";
                 document.getElementById("error2").style.display = "block";
             }
         })

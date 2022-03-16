@@ -52,13 +52,12 @@ function Main(props) {
     <Container fluid style={{ paddingLeft: '0vw', paddingRight: '0vw' }}>
       {Object.keys(chosenEx).length !== 0?<>
       <div className="exercises"><h3> {t("exercise")} n. {numberEx > -1 ? numberEx : null} 
-            {props.chosenEx.difficulty ? <span className={"topMargin box difficulty" + chosenEx.difficulty} style={{position: 'absolute', marginTop: '5.5px'}}>{difficulty}</span> : null}</h3></div>
+            {props.chosenEx.difficulty ? <span className={"topMargin box absolutePosition difficulty" + chosenEx.difficulty}>{difficulty}</span> : null}</h3></div>
         <Row>
             <Col>
                 <div className="question margin-left">
                     {props.chosenEx['question-' +i18n.language]}
                 </div>
-                <div className="collection margin-left">db.getCollection({'"' + props.chosenEx.collection + '"'})</div>
                 <CustomTextArea checkAnswer={checkAnswer} valid={props.valid}
                 chosenEx={props.chosenEx}
                 executeQuery={executeQuery}

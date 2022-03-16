@@ -66,7 +66,7 @@ function FilterMenu(props) {
                             <option value={"games"}>games</option>
                         </Input>  
                         </NavItem>
-                <Button style={{marginBottom: '1vh'}} className="checkButton" onClick={()=>{props.filterEx(selectedDifficulty, selectedTags, selectedCollection)}}> OK </Button>
+                <Button style={{marginBottom: '1vh'}} className="checkButton" onClick={()=>{props.filterEx(selectedDifficulty, selectedTags, selectedCollection)}} color="primary"> OK </Button>
                 </Nav>
                 
             </div> :
